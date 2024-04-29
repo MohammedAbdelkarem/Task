@@ -1,7 +1,11 @@
-@foreach ($teachers as $teacher)
-    <p>Teacher Name: {{ $teacher->edu_zone }}</p>
-    <p>Subject: {{ $teacher->subject }}</p>
-    <hr>
-@endforeach
-
-//stopping here , if the empty has no data then we shold print this , otherwise , print the data 
+<h1>Teachers</h1>
+@if($teachers->isEmpty())
+    <p>There is no teachers yet.</p>
+@else
+    @foreach ($teachers as $teacher)
+        <p>Name: {{ $teacher->name }}</p>
+        <p>Subject: {{ $teacher->subject }}</p>
+        <hr>
+    @endforeach
+@endif
+<a href="{{ route('teachers.create') }}">Add Teacher</a>
