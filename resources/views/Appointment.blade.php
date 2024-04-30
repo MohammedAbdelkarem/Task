@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{-- <script>
-        function updateDayField() {
-            var selectedDate = document.getElementById('date').value;
-            var selectedDay = new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long' });
-            document.getElementById('day').value = selectedDay;
-        }
-    </script> --}}
-
     <script>
         var teacherSubjects = {!! $teacherSubjects->toJson() !!}; // Convert the collection to JSON
         var studentEduZone = {!! $studentEduZone->toJson() !!}; // Convert the collection to JSON
@@ -28,10 +20,11 @@
             var selectedDay = new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long' });
             document.getElementById('day').value = selectedDay;
         }
+
     </script>
 </head>
 <body>
-    <form method="POST" action="{{ route('app.store') }}">
+    <form id="my_form" method="POST" action="{{ route('app.store') }}">
         @csrf
 
         <div>
@@ -55,8 +48,8 @@
         </div>
         <br><br>
         <div>
-            <label for="time">Time:</label>
-            <select id="time" name="time" required>
+            <label for="time_id">Time:</label>
+            <select id="time_id" name="time_id" required>
                 <option value="">Select a time</option>
                 @foreach($times as $time)
                 <option value="{{ $time->id }}">{{ $time->duration }}</option>
@@ -65,11 +58,11 @@
         </div>
         <br><br>
         <div>
-            <label for="semester">Semester:</label>
-            <select id="semester" name="semester" required>
+            <label for="semester_id">Semester:</label>
+            <select id="semester_id" name="semester_id" required>
                 <option value="">Select a semester</option>
                 @foreach($semesters as $semester)
-                <option value="{{ $semester->id }}">{{ $semester->name }}</option>
+                    <option value="{{ $semester->id }}">{{ $semester->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -101,5 +94,17 @@
         <br><br>
         <button type="submit">Submit</button>
     </form>
+    @if(session('error'))
+        <div class="alert alert-error">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if(session('success'))
+        <div class="alert alert-error">
+            {{ session('success') }}
+        </div>
+    @endif
+    <hr>
+    <a href="{{ route('dashboard') }}">Dashboard</a>
 </body>
 </html>

@@ -13,6 +13,7 @@ class Appointment extends Model
         'date',
         'teacher_id',
         'student_id',
+        'semester_id',
         'time_id',
     ];
 }
