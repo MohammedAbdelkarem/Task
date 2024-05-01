@@ -13,4 +13,9 @@ class Teacher extends Model
         'name',
         'subject',
     ];
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
 }

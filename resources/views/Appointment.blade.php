@@ -2,8 +2,8 @@
 <html>
 <head>
     <script>
-        var teacherSubjects = {!! $teacherSubjects->toJson() !!}; // Convert the collection to JSON
-        var studentEduZone = {!! $studentEduZone->toJson() !!}; // Convert the collection to JSON
+        var teacherSubjects = {!! $teacherSubjects->toJson() !!}; 
+        var studentEduZone = {!! $studentEduZone->toJson() !!}; 
 
         function updateSubjectField() {
             var teacherId = document.getElementById('teacher_id').value;

@@ -12,4 +12,9 @@ class Semester extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
 }

@@ -1,8 +1,4 @@
 <h1>test page</h1>
-@foreach ($validatedData as $key => $value)
-    {{ $key }}
-    <br>
-    {{ $value }}
-    <hr>
+@foreach ($data as $d)
+    {{ $d }} <br><hr><br>
 @endforeach
-{{-- {{ $validatedData->teacher_id }} --}}

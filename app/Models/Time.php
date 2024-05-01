@@ -12,4 +12,9 @@ class Time extends Model
     protected $fillable = [
         'duration',
     ];
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
 }

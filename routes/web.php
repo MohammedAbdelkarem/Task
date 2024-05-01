@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -36,6 +37,13 @@ Route::controller(StudentController::class)->group(function () {
         Route::get('/create' , [StudentController::class , 'addStudentView'])->name('students.create');
         Route::post('/store' , [StudentController::class , 'storeStudent']);
         Route::get('/get' , [StudentController::class , 'getStudents'])->name('students.get');
+    });
+});
+
+Route::controller(ReportController::class)->group(function () {
+    Route::group(['prefix' => '/reports'], function () {
+        Route::get('/create' , [ReportController::class , 'reportView'])->name('reports.create');
+        Route::post('/store' , [ReportController::class , 'store'])->name('report.store');
     });
 });
 

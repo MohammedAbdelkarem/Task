@@ -13,6 +13,7 @@ class AppointmentController extends Controller
 {
     public function appView()
     {
+        
         $students = Student::all();
         $teachers = Teacher::all();
         $times = Time::all();

@@ -13,4 +13,9 @@ class Student extends Model
         'name',
         'edu_zone',
     ];
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
+    }
+    
 }

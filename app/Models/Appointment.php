@@ -16,4 +16,21 @@ class Appointment extends Model
         'semester_id',
         'time_id',
     ];
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+    public function time()
+    {
+        return $this->belongsTo(Time::class);
+    }
 }
