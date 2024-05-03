@@ -4,5 +4,5 @@
 <a href="{{ route('teachers.create') }}">Add Teacher</a><br><br>
 <a href="{{ route('students.get') }}">Show Students</a><br><br>
 <a href="{{ route('teachers.get') }}">Show Teachers</a><br><br>
-{{-- <a href="{{ route('') }}">Show Reports</a><br><br>
-<a href="{{ route('') }}">Add Appointment</a><br><br> --}}
+<a href="{{ route('reports.create') }}">Show Reports</a><br><br>
+<a href="{{ route('app.view') }}">Add Appointment</a><br><br>
